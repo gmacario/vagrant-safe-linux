@@ -47,7 +47,13 @@ or
 vagrant ssh ch2
 ```
 
-To destroy the VMs you may type the following command
+To stop the VMs type the following command
+
+```
+vagrant halt
+```
+
+To destroy the VMs type the following command
 
 ```
 vagrant destroy
