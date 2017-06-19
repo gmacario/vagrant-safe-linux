@@ -74,4 +74,29 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+
+  config.vm.define "ch1" do |ch1|
+   ch1.vm.hostname = "ch1"
+   # ch1.vm.network "private_network", ip: "192.168.50.13"
+   ch1.vm.network "private_network", ip: "192.168.51.13", virtualbox__intnet: "mynetwork"
+   ch1.vm.provider :virtualbox do |vb|
+     vb.memory = "512"
+     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+     # vb.customize ["modifyvm", :id, "--name", "ch1"]
+   end
+   # TODO
+ end
+
+ config.vm.define "ch2" do |ch2|
+   ch2.vm.hostname = "ch2"
+   # ch2.vm.network "private_network", ip: "192.168.50.14"
+   ch2.vm.network "private_network", ip: "192.168.51.14", virtualbox__intnet: "mynetwork"
+   ch2.vm.provider :virtualbox do |vb|
+     vb.memory = "512"
+     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+     # vb.customize ["modifyvm", :id, "--name", "ch2"]
+   end
+   # TODO
+ end
+
 end
