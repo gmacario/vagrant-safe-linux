@@ -85,9 +85,9 @@ Vagrant.configure("2") do |config|
      # vb.customize ["modifyvm", :id, "--name", "ch1"]
    end
    # TODO
- end
+  end
 
- config.vm.define "ch2" do |ch2|
+  config.vm.define "ch2" do |ch2|
    ch2.vm.hostname = "ch2"
    # ch2.vm.network "private_network", ip: "192.168.50.14"
    ch2.vm.network "private_network", ip: "192.168.51.14", virtualbox__intnet: "mynetwork"
@@ -97,6 +97,6 @@ Vagrant.configure("2") do |config|
      # vb.customize ["modifyvm", :id, "--name", "ch2"]
    end
    # TODO
- end
+  end
 
 end
