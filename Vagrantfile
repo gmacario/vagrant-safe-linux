@@ -99,4 +99,17 @@ Vagrant.configure("2") do |config|
    # TODO
   end
 
+  config.vm.define "stretch" do |stretch|
+    config.vm.box = "debian/stretch64"
+    stretch.vm.hostname = "stretch"
+    # stretch.vm.network "private_network", ip: "192.168.50.20"
+    stretch.vm.network "private_network", ip: "192.168.51.20", virtualbox__intnet: "mynetwork"
+    stretch.vm.provider :virtualbox do |vb|
+      vb.memory = "512"
+      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      # vb.customize ["modifyvm", :id, "--name", "ch1"]
+    end
+    # TODO
+  end
+
 end
